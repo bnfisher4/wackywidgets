@@ -16,3 +16,7 @@ def index(request):
         return redirect('/')
     context = {'widgets': widgets, 'form':form}
     return render(request, 'index.html', context)
+
+def delete(request, pk):
+    delete_widget = Widget.objects.get(id=pk).delete()
+    return redirect('/')

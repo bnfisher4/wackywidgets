@@ -26,9 +26,9 @@
                     <tr>
                         <td>{{ w.description }}</td>
                         <td>{{ w.quantity }}</td>
-                        <td><a href=""></a>X</td>
+                        <td><a href="{% url 'delete' w.id %}">X</a></td>
                     </tr>
-                {% endfor %}
+                {% endfor %}    
             </tbody>
         </table>
     {% endif %}
