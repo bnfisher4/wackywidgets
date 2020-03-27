@@ -11,15 +11,34 @@
     <h1>Wacky Widgets</h1>
 
     {% if widgets.count == 0 %}
-    <h3>No Widgets Exist</h3>
+        <h3>No Widgets Exist</h3>
     {% else %}
-    <hr>
+        <table class="pure-table pure-table-striped">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for w in widgets %}
+                    <tr>
+                        <td>{{ w.description }}</td>
+                        <td>{{ w.quantity }}</td>
+                        <td><a href=""></a>X</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% endif %}
+    <hr>
 
     <h4>Add Widget</h4>
     <form class="pure-form" action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        <button type="submit" class="pure-button">Add Widget</button>
     </form>
 
 </body>
