@@ -10,7 +10,17 @@
 <body>
     <h1>Wacky Widgets</h1>
 
+    {% if widgets.count == 0 %}
     <h3>No Widgets Exist</h3>
+    {% else %}
     <hr>
+    {% endif %}
+
+    <h4>Add Widget</h4>
+    <form class="pure-form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+
 </body>
 </html>
